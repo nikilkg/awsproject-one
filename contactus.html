@@ -1,52 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/botstrap_modified.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <title>Responsive Food website</title>
+    <title>Hello World</title>
+    <!-- Add some CSS to change client UI -->
+    <style>
+    body {
+        background-color: #232F3E;
+        }
+    label, button {
+        color: #FF9900;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        margin-left: 40px;
+        }
+     input {
+        color: #232F3E;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        margin-left: 20px;
+        }
+    </style>
+    <script>
+        // define the callAPI function that takes a first name and last name as parameters
+        var callAPI = (firstName,lastName,email,number,message)=>{
+            // instantiate a headers object
+            var myHeaders = new Headers();
+            // add content type header to object
+            myHeaders.append("Content-Type", "application/json");
+            // using built in JSON utility package turn object to string and store in a variable
+            var raw = JSON.stringify({"firstName":firstName,"lastName":lastName,"email":email,"number":number,"message":message});
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            // make API call with parameters and use promises to get response
+            fetch("https://r5iwq988ba.execute-api.ap-south-1.amazonaws.com/dev", requestOptions)
+            .then(response => response.text())
+            .then(result => alert(JSON.parse(result).body))
+            .catch(error => console.log('error', error));
+        }
+    </script>
 </head>
 <body>
-    <div class="header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="index.html">MagicPan</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html">Back To Main Page</a>
-                  </li>
-                  <li class="nav-item">
-					<a class="nav-link" href="https://magicpan.auth.ap-south-1.amazoncognito.com/login?client_id=2899fgm885socolpme1320oiv2&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Flocalhost%2FTodaysmenu.html">Login</a>
-                  </li>
-                </ul>
-                <form class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Enter your favourite food" aria-label="Search">
-                  <button class="btn btn-outline-danger" type="submit">Search</button>
-                </form>
-              </div>
-            </div>
-          </nav>
-        <div class="body">
-            <h3 style="color:powderblue;">Call Us on</h3>
-            <h3 style="color:red;font-family:verdana;">+91 9629377037</h3>
-			 <h3 style="color:powderblue;">Or Write to</h3>
-            <h3 style="color:red;">support@magicpan.in</h3>
-        </div>
-    </div>
-        <div class="footer">
-        <footer>
-            © 2024 MagicPan
-        </footer>
-    </div>
-    <script src="js/nav.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <form>
+        <center><label>First Name :</label>
+        <input type="text" id="fName" required></center></br>
+        <center><label>Last Name  :</label>
+        <input type="text" id="lName" required></center></br>
+    <center><label>Email      :</label>
+        <input type="email" id="email" required></center></br>
+    <center><label>Contact    :</label>
+        <input type="number" id="number" required></center></br>
+    <center><textarea id="message" name="message" rows="4" required></textarea></center>
+        <!-- set button onClick method to call function we defined passing input values as parameters -->
+        <button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value,document.getElementById('email').value,document.getElementById('number').value,document.getElementById('message').value)">Call API</button>
+    </form>
 </body>
 </html>
