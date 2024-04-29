@@ -6,21 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/botstrap_modified.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-welcome.css">
     <link rel="stylesheet" href="css/responsive.css">
     <title>after login Home Page</title>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">MagicPan</a>
+              <a class="navbar-brand" href="index.html">MagicPan</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="index.html"">Home</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#app">App</a>
@@ -34,9 +40,54 @@
           </nav>
     </div>
     <div class="divider"></div>
-    <h3>Place Order</h3>
-
-    <div class="divider"></div>
+    <table>
+        <thead>
+            <tr>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Net Price</th>
+              </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" onkeyup="quantityfunc(this)"></td>
+                <td><input type="text" onkeyup="pricefunc(this)"></td>
+                <td class="netPrice">0</td>
+            </tr>
+            <tr>
+                <td><input type="text" onkeyup="quantityfunc(this)"></td>
+                <td><input type="text" onkeyup="pricefunc(this)"></td>
+                <td class="netPrice">0</td>
+            </tr>
+            <tfoot>
+                <tr>
+                    <th colspan="2">Total</th>
+                    <td id="total">0</td>
+                </tr>
+            </tfoot>
+        </tbody>
+      </table>
+      <script>
+        var total = document.getElementById("total");
+        var netPrice = document.getElementsByClassName("netPrice");
+        function totalResult(){
+                var cal = 0;
+                for(let i = 0; i<netPrice.length; i++){
+                cal += parseInt(netPrice[i].innerText);
+            }
+            total.innerHTML = cal;
+            }
+        function quantityfunc(q){
+            var priceValue = q.parentElement.parentElement.children[1].children[0].value;
+            q.parentElement.parentElement.children[2].innerHTML = q.value * priceValue;
+            totalResult()
+        }
+        function pricefunc(p){
+            var quantityValue = p.parentElement.parentElement.children[0].children[0].value;
+            p.parentElement.parentElement.children[2].innerHTML = p.value * quantityValue;
+            totalResult()
+        }
+      </script>
     <div class="footer">
         <footer>
             © 2024 MagicPan
