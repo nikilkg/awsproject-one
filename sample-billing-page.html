@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style-welcome.css">
+        <title>OrderPage</title>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Rate</th>
+                    <th>Qty</th>
+                    <th>Amt</th>
+                  </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Idly</td>
+                    <td id="p1">10</td>
+                   <td>
+                        <form>
+                            <select name="qty" onchange="quantityfunc(this)">
+                                <option value="0" selected>0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </form>
+                    </td>
+                    <td class="netPrice">0</td>
+                </tr>
+                <tr>
+                    <td>Sambar</td>
+                    <td id="p1">50</td>
+                   <td>
+                        <form>
+                            <select name="qty" onchange="quantityfunc(this)">
+                                <option value="0" selected>0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </form>
+                    </td>
+                    <td class="netPrice">0</td>
+                </tr>
+             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Total</td>
+                    <td id="total">0</td>
+                </tr>
+            </tfoot>
+        </table>
+        <script>
+            var total = document.getElementById("total");
+            var netPrice = document.getElementsByClassName("netPrice");
+            
+            function quantityfunc(q){
+                var priceValue = q.parentElement.parentElement.parentElement.children[1].innerHTML;
+                q.parentElement.parentElement.parentElement.children[3].innerHTML = q.value * priceValue;
+                //console.log(q.parentElement.parentElement.parentElement.children[3])
+                //console.log(q.value)
+                //console.log(priceValue)
+                var cal = 0;
+                for(let i = 0; i<netPrice.length; i++){
+                    cal += parseInt(netPrice[i].innerHTML);
+                }
+                total.innerHTML = cal;
+                
+            }
+            function pricefunc(p1){
+
+            }
+        </script>
+
+    </body>
+
+
+
+
+</html>
