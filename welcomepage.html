@@ -8,11 +8,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <title>after login Home Page</title>
-    <style>
-        table, th, td {
-          border: 1px solid black;
-        }
-    </style>
 </head>
 <body>
     <div class="header">
@@ -106,7 +101,7 @@
       
   </table>
 </br>
-  <center><button type="submit" onclick="callAlert('Thank you. Kindly review your WhatsApp for an update on your order.')">Submit</button></center>
+  <center><button type="submit" onclick="callAlert('Thank you. Kindly review your WhatsApp for an update on your order.');windows.location = 'orderconfpage.html'">Submit</button></center>
   
   <script>
       var total = document.getElementById("total");
@@ -129,8 +124,12 @@
 
       }
       function callAlert(msg){
-        alert(msg)
+        alert(msg);
       }
+
+      function preventback(){window.history.forward();}
+      setTimeout("preventback()",0);
+      window.onunload =  function () { null };
   </script>
 			    </div>
         <img src="assests/imageoftheday.jpg" alt="app" class="appImg">
