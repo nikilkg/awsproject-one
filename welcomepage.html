@@ -23,7 +23,7 @@
                     <a class="nav-link active" aria-current="page" href="index.html"">Home</a>
                   </li>
 			    <li class="nav-item">
-                    <a class="nav-link" href="https://magicpan.auth.ap-south-1.amazoncognito.com/login?client_id=2899fgm885socolpme1320oiv2&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Flocalhost%2FTodaysmenu.html">Logout</a>
+                    <a class="nav-link" href="https://magicpan.auth.ap-south-1.amazoncognito.com/logout?client_id=2899fgm885socolpme1320oiv2&redirect_uri=https%3A%2F%2Fmagicpan.in%2Fwelcomepage.html">Logout</a>
                   </li>
                 </ul>
               </div>
@@ -48,11 +48,11 @@
       </thead>
       <tbody>
           <tr>
-              <td>Idly</td>
+              <td id="item1">Idly</td>
               <td id="p1">10</td>
              <td>
                   <form>
-                      <select name="qty" onchange="quantityfunc(this)">
+                      <select id="qty1" onchange="quantityfunc(this)">
                           <option value="0" selected>0</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -70,11 +70,11 @@
               <td class="netPrice">0</td>
           </tr>
           <tr>
-              <td>Sambar</td>
-              <td id="p1">50</td>
+              <td id="item2">Sambar</td>
+              <td id="p2">50</td>
              <td>
                   <form>
-                      <select name="qty" onchange="quantityfunc(this)">
+                      <select name="qty2" onchange="quantityfunc(this)">
                           <option value="0" selected>0</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -127,9 +127,10 @@
         alert(msg);
       }
 
-      function preventback(){window.history.forward();}
+      function preventback(){{window.history.forward();}
       setTimeout("preventback()",0);
       window.onunload =  function () { null };
+    }
   </script>
 			    </div>
         <img src="assests/imageoftheday.jpg" alt="app" class="appImg">
