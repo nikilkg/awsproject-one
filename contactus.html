@@ -29,7 +29,14 @@
           .then(response => response.text())
           .then(result => alert(JSON.parse(result).body))
           .catch(error => console.log('error', error));
-      }
+        };
+        function clearField(){
+          document.getElementById("fName").value = "";
+          document.getElementById("lName").value = "";
+          document.getElementById("email").value = "";
+          document.getElementById("number").value = "";
+          document.getElementById("message").value = "";
+        }
   </script>
 </head>
 <body>
@@ -71,7 +78,7 @@
               <input type="number" id="number" required></pre>
               <pre style="color: rgb(232, 119, 26);;"><textarea id="message" name="message" rows="4" required></textarea></pre>
               <!-- set button onClick method to call function we defined passing input values as parameters -->
-              <button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value,document.getElementById('email').value,document.getElementById('number').value,document.getElementById('message').value)">Submit</button>
+              <button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value,document.getElementById('email').value,document.getElementById('number').value,document.getElementById('message').value);clearField()">Submit</button>
           </form>
           </div>
       </div>
