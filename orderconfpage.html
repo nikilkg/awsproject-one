@@ -10,17 +10,17 @@
     <title>Responsive Food website</title>
     <script>
       // define the callAPI function that takes a first name and last name as parameters
-      var callAPI = (firstName,lastName,email,number,message)=>{
+      var callAPIforOrder = (item1,p1,qty1,item2,p2,qty2)=>{
           // instantiate a headers object
-          var myHeaders = new Headers();
+          var myOrderHeaders = new Headers();
           // add content type header to object
-          myHeaders.append("Content-Type", "application/json");
+          myOrderHeaders.append("Content-Type", "application/json");
           // using built in JSON utility package turn object to string and store in a variable
-          var raw = JSON.stringify({"firstName":firstName,"lastName":lastName,"email":email,"number":number,"message":message});
+          var raw = JSON.stringify({"item1":item1,"p1":p1,"qty1":qty1,"item2":item2,"p2":p2,"qty2":qty2});
           // create a JSON object with parameters for API call and store in a variable
           var requestOptions = {
               method: 'POST',
-              headers: myHeaders,
+              headers: myOrderHeaders,
               body: raw,
               redirect: 'follow'
           };

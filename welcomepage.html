@@ -101,12 +101,11 @@
       
   </table>
 </br>
-  <center><button type="submit" onclick="callAlert('Thank you. Kindly review your WhatsApp for an update on your order.');windows.location = 'orderconfpage.html'">Submit</button></center>
+  <center><button type="submit" onclick="callAlert('Thank you. Kindly review your WhatsApp for an update on your order.');callAPIforOrder(document.getElementById('item1').value,document.getElementById('p1').value,document.getElementById('qty1').value,document.getElementById('item2').value,document.getElementById('p2').value,document.getElementById('qty2').value)">Submit</button></center>
   
   <script>
       var total = document.getElementById("total");
       var netPrice = document.getElementsByClassName("netPrice");
-      
       function quantityfunc(q){
           var priceValue = q.parentElement.parentElement.parentElement.children[1].innerHTML;
           q.parentElement.parentElement.parentElement.children[3].innerHTML = q.value * priceValue;
@@ -118,15 +117,33 @@
               cal += parseInt(netPrice[i].innerHTML);
           }
           total.innerHTML = cal;
-          
+      }
+      // define the callAPI function that takes a first name and last name as parameters
+      var callAPIforOrder = (item1,p1,qty1,item2,p2,qty2)=>{
+          // instantiate a headers object
+          var myOrderHeaders = new Headers();
+          // add content type header to object
+          myOrderHeaders.append("Content-Type", "application/json");
+          // using built in JSON utility package turn object to string and store in a variable
+          var raw = JSON.stringify({"item1":item1,"p1":p1,"qty1":qty1,"item2":item2,"p2":p2,"qty2":qty2});
+          // create a JSON object with parameters for API call and store in a variable
+          var requestOptions = {
+              method: 'POST',
+              headers: myOrderHeaders,
+              body: raw,
+              redirect: 'follow'
+          };
+          // make API call with parameters and use promises to get response
+          fetch("https://r5iwq988ba.execute-api.ap-south-1.amazonaws.com/dev", requestOptions)
+          .then(response => response.text())
+          .then(result => alert(JSON.parse(result).body))
+          .catch(error => console.log('error', error));
       }
       function pricefunc(p1){
-
       }
       function callAlert(msg){
         alert(msg);
       }
-
       function preventback(){{window.history.forward();}
       setTimeout("preventback()",0);
       window.onunload =  function () { null };
