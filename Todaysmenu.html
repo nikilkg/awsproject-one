@@ -11,9 +11,11 @@
 </head>
 <body>
     <div class="header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-              <a class="navbar-brand" href="index.html">MagicPan</a>
+              <a class="navbar-brand" href="index.html">
+                <img src="assests/logo-white.png" alt="Logo" class="logoimg" >
+              </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -34,28 +36,28 @@
             </div>
           </nav>
     </div>
-    <div class="Today's Menu" id="menu">
-        <h2><center>Discover Our Today's <span class="text-danger">Menu</span> Dishes</center></h2>
+    <div class="Today's Menu" id="menunew">
+        <h2><center>Discover Our Today's <span class="yellowtext">Menu</span> Dishes</center></h2>
      </div>
-    <div class="app" id="app">
+    <div class="appmenu" id="app">
         <div class="left">
             <h3>Sea Food<br>Fish Curry (Meen Mulakittathu)</h3>
             <p>Meen mulakittathu (Kerala red fish curry). Add an extra to your everyday meal with this vibrant red fish curry. The bold and distinctive flavor makes it so unique and delicious. Best of all, it’s highly nutritious and can be made in a jiffy.</p>
-			<a style="color:rgb(0, 0, 0);" href="https://magicpan-prod-user-pool.auth.ap-south-1.amazoncognito.com/login?client_id=5u64takcdgqdvm0rn8vk8d734c&response_type=code&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=https%3A%2F%2Fmagicpan.in%2Fwelcomepage.html"><b>Login To Place Order</b></a></br>
-			<table>
+			<a style="color: #b38001;" href="https://magicpan-prod-user-pool.auth.ap-south-1.amazoncognito.com/login?client_id=5u64takcdgqdvm0rn8vk8d734c&response_type=code&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=https%3A%2F%2Fmagicpan.in%2Fwelcomepage.html"><b>Login To Place Order</b></a></br>
+			<table id="dataTable">
+        <thead>
 				<tr>
 					<th>Item</th>
 					<th>Rate</th>
 				</tr>
-				<tr>
-					<td>Fish Curry</td>
-					<td>Rs. 140/-</td>
-				</tr>
-				<tr>
-					<td>Fish Fry (Regular)</td>
-					<td>Rs. 90/-</td>
-				</tr>
+      </thead>
+      <tbody>
+
+      </tbody>
 			</table>
+      <script src="js/script.js"></script>
+
+
 			<sub style="color:black;"><i>My ultimate aim is to motivate you to craft </br>delightful meals for your family and embark on </br>an adventure within the confines of your kitchen.</i></sub>
         </div>
         <img src="assests/imageoftheday.jpg" alt="app" class="appImg">
@@ -65,6 +67,7 @@
             © 2024 MagicPan
         </footer>
     </div>
+    
     <script src="js/nav.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>

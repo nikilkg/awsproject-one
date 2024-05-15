@@ -1,154 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/botstrap_modified.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/botstrap_modified.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
     <title>after login Home Page</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="index.html">MagicPan</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html"">Home</a>
-                  </li>
-			    <li class="nav-item">
-                    <a class="nav-link" type="Logout" href="https://magicpan-prod-user-pool.auth.ap-south-1.amazoncognito.com/error?client_id=5u64takcdgqdvm0rn8vk8d734c&redirect_uri=https://magicpan.in/index.html">Logout</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+            <img src="assests/logo-white.png" alt="Logo" class="logoimg" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  type="Logout"
+                  href="https://magicpan-prod-user-pool.auth.ap-south-1.amazoncognito.com/error?client_id=5u64takcdgqdvm0rn8vk8d734c&redirect_uri=https://magicpan.in/index.html"
+                  >Logout</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </div>
-    <div class="divider"></div>
-    <h3><center>Place Your Order Here</center></h3>
-    <div class="divider"></div>
- <div class="app" id="app">
-        <div class="left">
-          <h5> You wlll get what'sapp update regarding your order.</h5>
-          <h5> Please contact us, if you need any assistance. We are glad to help you.</h5></br>
-			    <table>
-      <thead>
-          <tr>
-              <th>Item</th>
-              <th>Rate</th>
-              <th>Qty</th>
-              <th>Amt</th>
-            </tr>
-      </thead>
-      <tbody>
-          <tr>
-              <td id="item1">Idly</td>
-              <td id="p1">10</td>
-             <td>
-                  <form>
-                      <select id="qty1" onchange="quantityfunc(this)">
-                          <option value="0" selected>0</option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                          <option value="9">9</option>
-                          <option value="10">10</option>
-                      </select>
-                  </form>
-              </td>
-              <td class="netPrice">0</td>
-          </tr>
-          <tr>
-              <td id="item2">Sambar</td>
-              <td id="p2">50</td>
-             <td>
-                  <form>
-                      <select name="qty2" onchange="quantityfunc(this)">
-                          <option value="0" selected>0</option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                          <option value="9">9</option>
-                          <option value="10">10</option>
-                      </select>
-                  </form>
-              </td>
-              <td class="netPrice">0</td>
-          </tr>
-       </tbody>
-      <tfoot>
-          <tr>
-              <td colspan="3"><b>Total</b></td>
-              <td align="right" id="total"><b>0</b></td>
-          </tr>
-      </tfoot>
-      
-  </table>
-</br>
-  <center><button type="submit" onclick="callAlert('Thank you. Kindly review your WhatsApp for an update on your order.');callAPIforOrder(document.getElementById('item1').value,document.getElementById('p1').value,document.getElementById('qty1').value,document.getElementById('item2').value,document.getElementById('p2').value,document.getElementById('qty2').value)">Submit</button></center>
-  
-  <script>
-      var total = document.getElementById("total");
-      var netPrice = document.getElementsByClassName("netPrice");
-      function quantityfunc(q){
-          var priceValue = q.parentElement.parentElement.parentElement.children[1].innerHTML;
-          q.parentElement.parentElement.parentElement.children[3].innerHTML = q.value * priceValue;
-          //console.log(q.parentElement.parentElement.parentElement.children[3])
-          //console.log(q.value)
-          //console.log(priceValue)
-          var cal = 0;
-          for(let i = 0; i<netPrice.length; i++){
-              cal += parseInt(netPrice[i].innerHTML);
+    <div class="order">
+      <h3>
+        <center>Place Your <span class="yellowtext">Order</span> Here</center>
+      </h3>
+    </div>
+    <div class="appmenu" id="app">
+      <div class="left">
+        <h5>You will get WhatsApp updates regarding your order.</h5>
+        <h5>
+          Please contact us if you need any assistance. We are glad to help you.
+        </h5>
+        <br />
+        <form method="post" action="save_data.php">
+          <table id="dataTable">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Rate</th>
+                <th>Qty</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3"><b>Total</b></td>
+                <td id="totalAmount">0</td>
+              </tr>
+            </tfoot>
+          </table>
+          <br />
+          <center>
+            <button type="submit" class="submitbtnwel">Submit</button>
+          </center>
+        </form>
+      </div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const tableBody = document.querySelector("#dataTable tbody");
+          let totalAmount = 0;
+
+          // Function to update table
+          function updateTable() {
+            fetch("data.csv")
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error("Network response was not ok");
+                }
+                return response.text();
+              })
+              .then((csvData) => {
+                // Check if table body already has rows
+                if (tableBody.children.length === 0) {
+                  const rows = csvData.split("\n");
+                  rows.forEach((row) => {
+                    const [item, rate] = row.split(",");
+                    const newRow = document.createElement("tr");
+
+                    // Create cells for item, rate, quantity, and amount
+                    const cellItem = document.createElement("td");
+                    cellItem.textContent = item;
+                    newRow.appendChild(cellItem);
+
+                    const cellRate = document.createElement("td");
+                    cellRate.textContent = rate;
+                    newRow.appendChild(cellRate);
+
+                    const cellQty = document.createElement("td");
+                    const qtyInput = document.createElement("input");
+                    qtyInput.type = "number";
+                    qtyInput.min = "0";
+                    qtyInput.value = "0";
+
+                    // Add event listeners only once per input
+                    qtyInput.addEventListener("input", function () {
+                      calculateAmount(newRow);
+                    });
+                    qtyInput.addEventListener("blur", function () {
+                      calculateAmount(newRow);
+                    });
+                    cellQty.appendChild(qtyInput);
+                    newRow.appendChild(cellQty);
+
+                    const cellAmount = document.createElement("td");
+                    cellAmount.textContent = "0";
+                    newRow.appendChild(cellAmount);
+
+                    tableBody.appendChild(newRow);
+                  });
+                }
+
+                // Update total amount
+                updateTotal();
+              })
+              .catch((error) => {
+                console.error("Error fetching CSV file:", error);
+              });
           }
-          total.innerHTML = cal;
-      }
-      // define the callAPI function that takes a first name and last name as parameters
-      var callAPIforOrder = (item1,p1,qty1,item2,p2,qty2)=>{
-          // instantiate a headers object
-          var myOrderHeaders = new Headers();
-          // add content type header to object
-          myOrderHeaders.append("Content-Type", "application/json");
-          // using built in JSON utility package turn object to string and store in a variable
-          var raw = JSON.stringify({"item1":item1,"p1":p1,"qty1":qty1,"item2":item2,"p2":p2,"qty2":qty2});
-          // create a JSON object with parameters for API call and store in a variable
-          var requestOptions = {
-              method: 'POST',
-              headers: myOrderHeaders,
-              body: raw,
-              redirect: 'follow'
+
+          // Function to calculate amount
+          function calculateAmount(row) {
+            const rate = row.cells[1].textContent;
+            const qty = parseInt(row.cells[2].querySelector("input").value);
+            const amount = qty * parseFloat(rate);
+            row.cells[3].textContent = amount.toFixed(2);
+
+            // Update total amount
+            updateTotal();
+          }
+
+          // Function to update total amount
+          function updateTotal() {
+            totalAmount = 0;
+            tableBody.querySelectorAll("tr").forEach((row) => {
+              totalAmount += parseFloat(row.cells[3].textContent);
+            });
+            document.getElementById("totalAmount").textContent =
+              totalAmount.toFixed(2);
+          }
+
+          // Call updateTable function initially and periodically
+          updateTable();
+          setInterval(updateTable, 5000); // Update every 5 seconds
+        });
+
+        // Function to save data to MySQL database using AJAX
+        function saveDataToDatabase() {
+          const tableRows = document.querySelectorAll("#dataTable tbody tr");
+          const data = [];
+
+          tableRows.forEach((row) => {
+            const item = row.cells[0].textContent;
+            const rate = row.cells[1].textContent;
+            const qty = row.cells[2].querySelector("input").value;
+            const amount = row.cells[3].textContent;
+            data.push({ item, rate, qty, amount });
+          });
+
+          const xhr = new XMLHttpRequest();
+          const url = "save_data.php";
+          const params = "data=" + JSON.stringify(data);
+
+          xhr.open("POST", url, true);
+          xhr.setRequestHeader(
+            "Content-type",
+            "application/x-www-form-urlencoded"
+          );
+
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+              if (xhr.status === 200) {
+                console.log("Data saved successfully");
+              } else {
+                console.error("Error saving data:", xhr.statusText);
+              }
+            }
           };
-          // make API call with parameters and use promises to get response
-          fetch("https://r5iwq988ba.execute-api.ap-south-1.amazonaws.com/dev", requestOptions)
-          .then(response => response.text())
-          .then(result => alert(JSON.parse(result).body))
-          .catch(error => console.log('error', error));
-      }
-      function pricefunc(p1){
-      }
-      function callAlert(msg){
-        alert(msg);
-      }
-      function preventback(){{window.history.forward();}
-      setTimeout("preventback()",0);
-      window.onunload =  function () { null };
-    }
-  </script>
-			    </div>
-        <img src="assests/imageoftheday.jpg" alt="app" class="appImg">
+
+          xhr.send(params);
+        }
+
+        // Call the function to save data when Submit button is clicked
+        const submitBtn = document.querySelector(".submitbtnwel");
+        submitBtn.addEventListener("click", saveDataToDatabase);
+      </script>
+      <img src="assests/imageoftheday.jpg" alt="app" class="appImg" />
     </div>
+    <div class="footer">
+      <footer>© 2024 MagicPan</footer>
+    </div>
+  </body>
+</html>
